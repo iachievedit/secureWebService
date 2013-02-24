@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'json'
 
+class Application < Sinatra::Base
+
 get '/resource/:id' do
   resource_id = params[:id]
 
@@ -9,4 +11,6 @@ get '/resource/:id' do
    status:    "OK",
    values:   {key1:  "value1",
               key2:  "value2"}}.to_json
+end
+
 end
