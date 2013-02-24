@@ -1,4 +1,4 @@
-equire File.join(File.dirname(__FILE__), 'webservice')
+require File.join(File.dirname(__FILE__), 'webservice')
 
 use Rack::ShowExceptions
 use Rack::Static, :urls => [ '/favicon.ico', '/stylesheets' ], :root => "public"

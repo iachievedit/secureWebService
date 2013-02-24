@@ -1,17 +1,22 @@
+require 'bundler/capistrano'
+
 set :application, "secureWebService"
-set :repository,  "git@github.com:iachieved/secureWebService"
+#set :repository,  "git@github.com:iachievedit/secureWebService"
+set :repository,  "https://github.com/iachievedit/secureWebService"
 
 set :scm, :git
+set :deploy_via, :remote_cache
 
-role :web, "192.168.0.113"
+#role :web, "192.168.0.113"
+role :app, "192.168.0.113"
 
 after "deploy:restart", "deploy:cleanup"
 
 task :development do
   set :user, "webservice"
-  set :use_sudo, true
+  set :use_sudo, false
   set :stage, "development"
-  set :branch, "development"
+  set :branch, "master"
   set :deploy_to, "/web/apps/#{stage}/#{application}"
 end
 
